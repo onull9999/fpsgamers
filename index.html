@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPSgamers</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaeaea;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            background-color: #555555;
+            color: white;
+            padding: 30px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid #777777;
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #777777;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            cursor: pointer;
+            margin: 0 15px;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #999999;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        main {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .youtuber {
+            text-align: center;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+            border: 1px solid #ccc;
+        }
+
+        .youtuber:hover {
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .youtube-icon {
+            width: 60px;
+            margin-bottom: 15px;
+        }
+
+        .youtuber a {
+            text-decoration: underline;
+            text-decoration-color: red;
+            text-underline-offset: 8px;
+            color: #555555;
+            font-size: 26px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .youtuber a:hover {
+            text-decoration: underline;
+            color: #777777;
+        }
+
+        .divider {
+            border-top: 3px solid #777;
+            margin: 40px auto;
+            width: 80%;
+            opacity: 0.5;
+        }
+
+        .copyright-notice {
+            background-color: #f8f8f8;
+            border-left: 5px solid #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FPSgamers</h1>
+        <nav>
+            <button onclick="location.href='index.html'">メイン</button>
+            <button onclick="location.href='2.html'">サイトとコミュニティ</button>
+            <button onclick="location.href='kako.html'">過去動画</button>
+        </nav>
+    </header>
+    <main>
+        <section class="youtuber">
+            <h2><a href="https://www.youtube.com/c/fpsgamer201" target="_blank">FPSgamer201 (本家)</a></h2>
+            <img src="201.png" alt="YouTube Icon" class="youtube-icon">
+            <p>2012年 にチャンネルを開設。その後SCPやGmodなどの実況や茶番でファンを獲得。<br>2020年後半頃から一部の動画が削除や限定公開されるなどの動きがあり、<br>精神的な負担を心配する声も視聴者から寄せられていた。<br>その後2025/5/5に最後の配信をもって引退、チャンネルを削除し、多大な反響が起こった</p>
+        </section>
+
+        <section class="youtuber">
+            <h2><a href="https://www.youtube.com/channel/UCqmIoKzagKdZfNczbe6GyXA" target="_blank">FPSgamer301</a></h2>
+            <img src="301.png" alt="YouTube Icon" class="youtube-icon">
+            <p>2023/2/26 にチャンネルを開設。<br>主にFPSgamer201のパロディ動画を投稿している。<br>現在pcの環境の問題で動画を投稿していないが、改善後、動画を出す予定だと話していた。</p>
+        </section>
+
+        <section class="youtuber">
+            <h2><a href="https://www.youtube.com/@NO_FPSgamer" target="_blank">FPSgamer...?</a></h2>
+            <img src="hatena.png" alt="YouTube Icon" class="youtube-icon">
+            <p>2025/5/7 にチャンネルを開設。<br>主に本家のパロディ(リスペクト)動画を投稿している。動画内容も本家と近い物となっている。<br>Discordのコミニュティサーバーもあり、今後の活躍が期待できる。</p>
+        </section>
+
+        <div class="divider"></div>
+    </main>
+</body>
+</html>

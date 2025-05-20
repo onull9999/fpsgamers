@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPSgamers - 過去動画アーカイブ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaeaea;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            background-color: #555555;
+            color: white;
+            padding: 30px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid #777777;
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #777777;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            cursor: pointer;
+            margin: 0 15px;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #999999;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .video-item {
+            position: relative;
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            background-color: #fff;
+        }
+
+        .video-item:hover {
+            transform: scale(1.02);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #000;
+        }
+
+        .video-title {
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .video-info {
+            padding: 0 10px 10px;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        /* モーダルスタイル */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .modal-video {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9アスペクト比 */
+            position: relative;
+            background-color: #000;
+        }
+
+        .modal-video video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .video-actions button {
+            margin: 0 10px;
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+
+        .archive-notice {
+            background-color: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .video-offer {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FPSgamers</h1>
+        <nav>
+            <button onclick="location.href='index.html'">メイン</button>
+            <button onclick="location.href='2.html'">サイトとコミュニティ</button>
+            <button onclick="location.href='kako.html'">過去動画</button>
+        </nav>
+    </header>
+    <main>
+        <div class="archive-notice">
+            <h3>※ アーカイブについて</h3>
+            <p>このページには削除済みの過去動画をアーカイブとして保存しています。<br>
+            動画はファンによる保存版であり、画質や音質が完全でない場合があります。</p>
+        </div>
+
+        <div class="video-offer">
+            <h3>動画の提供について</h3>
+            <p>現在、FPSgamer201様の削除済み動画を収集しています。ご提供なさる際は <a href="mailto:onull9999@gmail.com">onull9999@gmail.com</a> または onull9999のDiscordアカウントにご連絡ください。</p>
+        </div>
+
+        <h2>過去動画アーカイブ</h2>
+        <div class="video-grid">
+            <!-- 動画1 -->
+            <div class="video-item" onclick="openModal('videos/1.mp4', 'Backrooms内の生存者を捜索してみた')">
+                <video class="video-thumbnail" muted loop playsinline>
+                    <source src="videos/1.mp4#t=10" type="video/mp4">
+                </video>
+                <div class="video-title">Backrooms内の生存者を捜索してみた</div>
+                <div class="video-info">2023/03/04</div>
+            </div>
+
+            <!-- 動画2 -->
+            <div class="video-item" onclick="openModal('videos/2.mp4', 'BackRooms破壊してみた')">
+                <video class="video-thumbnail" muted loop playsinline>
+                    <source src="videos/2.mp4#t=5" type="video/mp4">
+                </video>
+                <div class="video-title">BackRooms破壊してみた</div>
+                <div class="video-info">2023/02/15</div>
+            </div>
+
+            <!-- 動画3 -->
+            <div class="video-item" onclick="openModal('videos/3.mp4', 'ゆっくりだけどBackroomsで暮らしてみたよ！')">
+                <video class="video-thumbnail" muted loop playsinline>
+                    <source src="videos/3.mp4#t=15" type="video/mp4">
+                </video>
+                <div class="video-title">ゆっくりだけどBackroomsで暮らしてみたよ！</div>
+                <div class="video-info">2022/08/28</div>
+            </div>
+
+            <!-- 動画4 -->
+            <div class="video-item" onclick="openModal('videos/4.mp4', 'Mr.Beastに追いかけられる【ゆっくり実況】')">
+                <video class="video-thumbnail" muted loop playsinline>
+                    <source src="videos/4.mp4#t=30" type="video/mp4">
+                </video>
+                <div class="video-title">Mr.Beastに追いかけられる【ゆっくり実況】</div>
+                <div class="video-info">2023/02/04</div>
+            </div>
+
+            <!-- 動画5 -->
+            <div class="video-item" onclick="openModal('videos/5.mp4', '8体の強化SCPを倒せ！【GMOD ゆっくり実況】')">
+                <video class="video-thumbnail" muted loop playsinline>
+                    <source src="videos/5.mp4#t=20" type="video/mp4">
+                </video>
+                <div class="video-title">8体の強化SCPを倒せ！【GMOD ゆっくり実況】</div>
+                <div class="video-info">2020/10/07</div>
+            </div>
+
+            <!-- 動画6 -->
+            <div class="video-item" onclick="openModal('videos/6.mp4', 'サンズと核弾頭を戦わせてみた【GMOD ゆっくり実況】')">
+                <video class="video-thumbnail" muted loop playsinline>
+                    <source src="videos/6.mp4#t=10" type="video/mp4">
+                </video>
+                <div class="video-title">サンズと核弾頭を戦わせてみた【GMOD ゆっくり実況】</div>
+                <div class="video-info">2021/04/16</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- モーダルウィンドウ -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-video">
+                <video id="modalVideoPlayer" controls>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-actions">
+                <button onclick="downloadVideo()">ダウンロード</button>
+                <button onclick="closeModal()">閉じる</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 現在再生中の動画情報
+        let currentVideo = {
+            src: '',
+            title: ''
+        };
+
+        // モーダルを開く関数
+        function openModal(videoSrc, videoTitle) {
+            currentVideo.src = videoSrc;
+            currentVideo.title = videoTitle;
+            
+            const player = document.getElementById('modalVideoPlayer');
+            player.src = videoSrc;
+            player.load();
+            
+            document.getElementById('videoModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // 動画再生を開始
+            setTimeout(() => {
+                player.play().catch(e => console.log('Autoplay was prevented:', e));
+            }, 300);
+        }
+
+        // モーダルを閉じる関数
+        function closeModal() {
+            const player = document.getElementById('modalVideoPlayer');
+            player.pause();
+            player.currentTime = 0;
+            
+            document.getElementById('videoModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 動画ダウンロード
+        function downloadVideo() {
+            if (currentVideo.src) {
+                const link = document.createElement('a');
+                link.href = currentVideo.src;
+                link.download = currentVideo.title + '.mp4';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+
+        // モーダル外をクリックで閉じる
+        window.onclick = function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // サムネイル用動画をループ再生
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbnails = document.querySelectorAll('.video-thumbnail');
+            thumbnails.forEach(thumb => {
+                // ページ読み込み時に動画をロード
+                thumb.load();
+                
+                thumb.addEventListener('mouseover', function() {
+                    this.currentTime = 0; // 動画の最初から再生
+                    this.play().catch(e => console.log('Playback prevented:', e));
+                });
+                
+                thumb.addEventListener('mouseout', function() {
+                    this.pause();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
